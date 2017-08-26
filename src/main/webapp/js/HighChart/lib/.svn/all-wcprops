@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib
+END
+canvg.src.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib/canvg.src.js
+END
+jspdf.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib/jspdf.js
+END
+rgbcolor.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib/rgbcolor.js
+END
+svg2pdf.js
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib/svg2pdf.js
+END
+jspdf.src.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib/jspdf.src.js
+END
+canvg.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib/canvg.js
+END
+rgbcolor.src.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib/rgbcolor.src.js
+END
+svg2pdf.src.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/18/src/main/webapp/js/HighChart/lib/svg2pdf.src.js
+END

@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/crm/!svn/ver/16/src/main/webapp/WEB-INF/views
+END
+main.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/crm/!svn/ver/16/src/main/webapp/WEB-INF/views/main.jsp
+END
+cchart2.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/cchart2.jsp
+END
+systemlog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/crm/!svn/ver/16/src/main/webapp/WEB-INF/views/systemlog.jsp
+END
+permission.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/16/src/main/webapp/WEB-INF/views/permission.jsp
+END
+common.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/crm/!svn/ver/16/src/main/webapp/WEB-INF/views/common.jsp
+END
+mmchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/mmchart.jsp
+END
+contractchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/contractchart.jsp
+END
+mchart2.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/mchart2.jsp
+END
+sign.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/sign.jsp
+END
+customer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/customer.jsp
+END
+role.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/crm/!svn/ver/16/src/main/webapp/WEB-INF/views/role.jsp
+END
+ppchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/ppchart.jsp
+END
+customertracehistory.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/customertracehistory.jsp
+END
+department.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/16/src/main/webapp/WEB-INF/views/department.jsp
+END
+customerresourcepool.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/customerresourcepool.jsp
+END
+pchart2.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/pchart2.jsp
+END
+potentialcustomerchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/potentialcustomerchart.jsp
+END
+cchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/cchart.jsp
+END
+ccchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/ccchart.jsp
+END
+systemdictionary.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/systemdictionary.jsp
+END
+customerdevplan.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/customerdevplan.jsp
+END
+order.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/order.jsp
+END
+contract.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/contract.jsp
+END
+mchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/mchart.jsp
+END
+employee.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/crm/!svn/ver/16/src/main/webapp/WEB-INF/views/employee.jsp
+END
+pchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/pchart.jsp
+END
+potentialcustomer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/potentialcustomer.jsp
+END
+customerchart.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/customerchart.jsp
+END
+cutomertransfer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/crm/!svn/ver/21/src/main/webapp/WEB-INF/views/cutomertransfer.jsp
+END

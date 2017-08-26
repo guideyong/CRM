@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/crm/!svn/ver/16/src/main/resources
+END
+db.properties
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/crm/!svn/ver/1/src/main/resources/db.properties
+END
+keyGen.txt
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/crm/!svn/ver/1/src/main/resources/keyGen.txt
+END
+application.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/crm/!svn/ver/16/src/main/resources/application.xml
+END
+application-mvc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/crm/!svn/ver/10/src/main/resources/application-mvc.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/crm/!svn/ver/1/src/main/resources/log4j.properties
+END
+mybatis-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/crm/!svn/ver/1/src/main/resources/mybatis-config.xml
+END
+generatorConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/crm/!svn/ver/11/src/main/resources/generatorConfig.xml
+END

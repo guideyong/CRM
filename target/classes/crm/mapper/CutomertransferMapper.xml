@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.CutomertransferMapper" >
+  <resultMap id="BaseResultMap" type="crm.domain.Cutomertransfer" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="transTime" property="transtime" jdbcType="TIMESTAMP" />
+    <result column="transReason" property="transreason" jdbcType="VARCHAR" />
+    <association property="customer" javaType="Potentialcustomer">
+      <id column="customer" property="id"/>
+      <result column="customer_name" property="name"/>
+    </association>
+      <association property="transuser" javaType="Employee">
+          <id column="transUser" property="id"/>
+          <result column="transUser_username" property="username"/>
+      </association>
+      <association property="oldseller" javaType="Employee">
+          <id column="oldSeller" property="id"/>
+          <result column="oldSeller_username" property="username"/>
+      </association>
+      <association property="newseller" javaType="Employee">
+          <id column="newSeller" property="id"/>
+          <result column="newSeller_username" property="username"/>
+      </association>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from cutomertransfer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="crm.domain.Cutomertransfer" useGeneratedKeys="true" keyProperty="id" >
+    insert into cutomertransfer (customer, transUser, transTime, 
+      oldSeller, newSeller, transReason
+      )
+    values (#{customer.id,jdbcType=BIGINT}, #{transuser.id,jdbcType=BIGINT}, #{transtime,jdbcType=TIMESTAMP},
+      #{oldseller.id,jdbcType=BIGINT}, #{newseller.id,jdbcType=BIGINT}, #{transreason,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="crm.domain.Cutomertransfer" >
+    update cutomertransfer
+    set customer = #{customer.id,jdbcType=BIGINT},
+      transUser = #{transuser.id,jdbcType=BIGINT},
+      transTime = #{transtime,jdbcType=TIMESTAMP},
+      oldSeller = #{oldseller.id,jdbcType=BIGINT},
+      newSeller = #{newseller.id,jdbcType=BIGINT},
+      transReason = #{transreason,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, customer, transUser, transTime, oldSeller, newSeller, transReason
+    from cutomertransfer
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, customer, transUser, transTime, oldSeller, newSeller, transReason
+    from cutomertransfer
+  </select>
+    <select id="queryByConditionCount" resultType="Long">
+        SELECT COUNT(*) FROM cutomertransfer c
+        <where>
+        <if test="customerID!=null">
+            AND c.customer=#{customerID}
+        </if>
+        <if test="beginDate!=null">
+            AND c.transTime &gt;=#{beginDate}
+        </if>
+        <if test="endDate!=null">
+            AND c.transTime &lt;=#{endDate}
+        </if>
+        </where>
+    </select>
+    <select id="queryByCondition" resultMap="BaseResultMap">
+        SELECT c.id,c.transTime,c.transReason, p.id as customer, p.name as customer_name, f.id as transUser,f.username as transUser_username,
+        o.id as oldSeller,o.username as oldSeller_username,n.id as newSeller, n.username as newSeller_username
+        FROM cutomertransfer c LEFT JOIN potentialcustomer p on p.id=customer LEFT JOIN employee f on f.id=c.transUser LEFT JOIN employee o on o.id=oldSeller left JOIN
+        employee n on n.id=newSeller
+        <where>
+        <if test="customerID!=null">
+            AND c.customer=#{customerID}
+        </if>
+        <if test="beginDate!=null">
+            AND c.transTime &gt;=#{beginDate}
+        </if>
+        <if test="endDate!=null">
+            AND c.transTime &lt;=#{endDate}
+        </if>
+        </where>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

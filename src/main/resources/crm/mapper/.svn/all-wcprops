@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/crm/!svn/ver/13/src/main/resources/crm/mapper
+END
+CustomerdevplanMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/21/src/main/resources/crm/mapper/CustomerdevplanMapper.xml
+END
+OrderMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/21/src/main/resources/crm/mapper/OrderMapper.xml
+END
+ContractMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/21/src/main/resources/crm/mapper/ContractMapper.xml
+END
+EmployeeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/13/src/main/resources/crm/mapper/EmployeeMapper.xml
+END
+SignMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/21/src/main/resources/crm/mapper/SignMapper.xml
+END
+RoleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/13/src/main/resources/crm/mapper/RoleMapper.xml
+END
+PotentialcustomerMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/crm/!svn/ver/21/src/main/resources/crm/mapper/PotentialcustomerMapper.xml
+END
+DepartmentMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/crm/!svn/ver/1/src/main/resources/crm/mapper/DepartmentMapper.xml
+END
+CutomertransferMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/21/src/main/resources/crm/mapper/CutomertransferMapper.xml
+END
+SystemlogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/1/src/main/resources/crm/mapper/SystemlogMapper.xml
+END
+PermissionMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/crm/!svn/ver/13/src/main/resources/crm/mapper/PermissionMapper.xml
+END
+SystemdictionaryitemMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/crm/!svn/ver/21/src/main/resources/crm/mapper/SystemdictionaryitemMapper.xml
+END
+SystemdictionaryMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/crm/!svn/ver/21/src/main/resources/crm/mapper/SystemdictionaryMapper.xml
+END

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/crm/!svn/ver/10/src/main/java/crm/domain
+END
+Sign.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/Sign.java
+END
+chart.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/chart.java
+END
+Role.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/crm/!svn/ver/1/src/main/java/crm/domain/Role.java
+END
+BaseDomain.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/crm/!svn/ver/1/src/main/java/crm/domain/BaseDomain.java
+END
+Department.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/crm/!svn/ver/1/src/main/java/crm/domain/Department.java
+END
+Systemdictionary.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/Systemdictionary.java
+END
+Order.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/Order.java
+END
+Customerdevplan.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/Customerdevplan.java
+END
+Contract.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/Contract.java
+END
+Employee.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/crm/!svn/ver/10/src/main/java/crm/domain/Employee.java
+END
+Potentialcustomer.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/Potentialcustomer.java
+END
+Cutomertransfer.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/Cutomertransfer.java
+END
+Systemlog.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/crm/!svn/ver/10/src/main/java/crm/domain/Systemlog.java
+END
+Permission.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/crm/!svn/ver/1/src/main/java/crm/domain/Permission.java
+END
+Systemdictionaryitem.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/crm/!svn/ver/20/src/main/java/crm/domain/Systemdictionaryitem.java
+END

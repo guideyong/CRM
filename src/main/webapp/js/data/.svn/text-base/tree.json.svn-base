@@ -1,0 +1,188 @@
+[
+  {
+    "id": 1,
+    "text": "营销管理",
+    "iconCls": "icon-group",
+    "children": [
+      {
+        "id": 1,
+        "text": "潜在客户管理",
+        "iconCls": "icon-PotentialCustomer",
+        "attributes": {
+          "url": "/potentialcustomer"
+        }
+      },
+      {
+        "id": 2,
+        "text": "客户信息管理",
+        "iconCls": "icon-Customer",
+        "attributes": {
+          "url": "/customer"
+        }
+      },
+      {
+        "id": 3,
+        "text": "客户开发计划",
+        "iconCls": "icon-CustomerDevPlan",
+        "attributes": {
+          "url": "/customerdevplan"
+        }
+      },
+      {
+        "id": 4,
+        "text": "客户跟进历史",
+        "iconCls": "icon-CustomerTraceHistory",
+        "attributes": {
+          "url": "/customertracehistory"
+        }
+      }
+    ,
+      {
+        "id": 5,
+        "text": "客户移交记录",
+        "iconCls": "icon-CutomerTransfer",
+        "attributes": {
+          "url": "/cutomertransfer"
+        }
+      }
+      ,
+      {
+        "id": 6,
+        "text": "客户资源管理",
+        "iconCls": "icon-CustomerResourcePool",
+        "attributes": {
+          "url": "/customerresourcepool"
+        }
+      }
+    ]
+  }
+,
+  {
+    "id": 1,
+    "text": "订单合同管理",
+    "iconCls": "icon-bill",
+    "children": [
+      {
+        "id": 1,
+        "text": "订单管理",
+        "iconCls": "icon-Order",
+        "attributes": {
+          "url": "/order"
+        }
+      },
+      {
+        "id": 2,
+        "text": "合同管理",
+        "iconCls": "icon-Contract",
+        "attributes": {
+          "url": "/contract"
+        }
+      }
+    ]
+  }
+,
+  {
+    "id": 1,
+    "text": "报表模块",
+    "iconCls": "icon-chartbar",
+    "children": [
+      {
+        "id": 1,
+        "text": "潜在客户报表",
+        "iconCls": "icon-chart_bar_add",
+        "attributes": {
+          "url": "/potentialcustomerchart"
+        }
+      },
+      {
+        "id": 1,
+        "text": "正式客户报表",
+        "iconCls": "icon-chart_pie_add",
+        "attributes": {
+          "url": "/customerchart"
+        }
+      },
+      {
+        "id": 2,
+        "text": "销售金额报表",
+        "iconCls": "icon-moneyreport",
+        "attributes": {
+          "url": "/contractchart"
+        }
+      }
+    ]
+  }
+,
+  {
+    "id": 1,
+    "text": "系统管理",
+    "iconCls": "icon-cog",
+    "children": [
+      {
+        "id": 1,
+        "text": "员工管理",
+        "iconCls": "icon-user",
+        "attributes": {
+          "url": "/employee"
+        }
+      },
+      {
+        "id": 2,
+        "text": "部门管理",
+        "iconCls": "icon-dept",
+        "attributes": {
+          "url": "/department"
+        }
+      },
+      {
+        "id": 3,
+        "text": "角色管理",
+        "iconCls": "icon-people",
+        "attributes": {
+          "url": "/role"
+        }
+      },
+      {
+        "id": 4,
+        "text": "权限管理",
+        "iconCls": "icon-key",
+        "attributes": {
+          "url": "/permission"
+        }
+      }
+    ,
+      {
+        "id": 4,
+        "text": "数据字典",
+        "iconCls": "icon-book",
+        "attributes": {
+          "url": "/systemdictionary"
+        }
+      }
+    ,
+      {
+        "id": 5,
+        "text": "系统日志",
+        "iconCls": "icon-book_spelling",
+        "attributes": {
+          "url": "/systemlog"
+        }
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "text": "员工考勤",
+    "iconCls": "icon-checkman",
+    "children": [
+      {
+        "id": 1,
+        "text": "考勤信息管理",
+        "iconCls": "icon-acheckman",
+        "attributes": {
+          "url": "/sign"
+        }
+      }
+    ]
+  }
+]

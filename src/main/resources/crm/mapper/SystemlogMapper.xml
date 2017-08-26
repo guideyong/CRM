@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.SystemlogMapper">
+    <resultMap id="BaseResultMap" type="crm.domain.Systemlog">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="opTime" property="optime" jdbcType="DATE"/>
+        <result column="opIP" property="opip" jdbcType="VARCHAR"/>
+        <result column="function" property="function" jdbcType="VARCHAR"/>
+        <result column="params" property="params" jdbcType="VARCHAR"/>
+        <association property="opuser" javaType="Employee" columnPrefix="opuser_">
+            <id column="id" property="id"/>
+            <result column="username" property="username"/>
+        </association>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from systemlog
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="crm.domain.Systemlog" useGeneratedKeys="true" keyProperty="id">
+    insert into systemlog (opUser_id, opTime, opIP, 
+      function, params)
+    values (#{opuser.id,jdbcType=BIGINT}, #{optime,jdbcType=DATE}, #{opip,jdbcType=VARCHAR},
+      #{function,jdbcType=VARCHAR}, #{params,jdbcType=VARCHAR})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="crm.domain.Systemlog">
+    update systemlog
+    set opUser_id = #{opuserId,jdbcType=BIGINT},
+      opTime = #{optime,jdbcType=DATE},
+      opIP = #{opip,jdbcType=VARCHAR},
+      function = #{function,jdbcType=VARCHAR},
+      params = #{params,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select id, opUser_id, opTime, opIP, function, params
+    from systemlog
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, opUser_id, opTime, opIP, function, params
+    from systemlog
+  </select>
+
+    <select id="queryByConditionCount" resultType="Long">
+        SELECT COUNT(*) FROM systemlog s
+        <where>
+            <if test="opuserId!=null">
+                AND s.opUser_id=#{opuserId}
+            </if>
+            <if test="keyword!=null">
+                AND (s.params like concat ('%',#{keyword},'%') or s.function like concat('%',#{keyword},'%'))
+            </if>
+            <if test="beginDate!=null">
+                AND s.optime &gt;=#{beginDate}
+            </if>
+            <if test="endDate!=null">
+                AND s.optime &lt;=#{endDate}
+            </if>
+        </where>
+    </select>
+    <select id="queryByCondition" resultMap="BaseResultMap">
+        select s.id,s.opTime, s.opIP, s.function, s.params, e.id as opUser_id,e.username as opuser_username
+        from systemlog s LEFT JOIN employee e ON e.id=s.opUser_id
+        <where>
+            <if test="opuserId!=null">
+                AND s.opUser_id=#{opuserId}
+            </if>
+            <if test="keyword!=null">
+                AND (s.params like concat ('%',#{keyword},'%') or s.function like concat('%',#{keyword},'%'))
+            </if>
+            <if test="beginDate!=null">
+                AND s.optime &gt;=#{beginDate}
+            </if>
+            <if test="endDate!=null">
+                AND s.optime &lt;=#{endDate}
+            </if>
+        </where>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

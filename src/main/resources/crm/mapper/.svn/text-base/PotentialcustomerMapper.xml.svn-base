@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.PotentialcustomerMapper">
+    <resultMap id="BaseResultMap" type="crm.domain.Potentialcustomer">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="gender" property="gender" jdbcType="INTEGER"/>
+        <result column="tel" property="tel" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="qq" property="qq" jdbcType="VARCHAR"/>
+        <result column="wechart" property="wechart" jdbcType="VARCHAR"/>
+        <result column="inputTime" property="inputtime" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="BIGINT"/>
+        <association property="job" javaType="Systemdictionaryitem">
+            <id column="job" property="id"/>
+            <result column="job_name" property="name"/>
+        </association>
+        <association property="salarylevel" javaType="Systemdictionaryitem">
+            <id column="salaryLevel" property="id"/>
+            <result column="salaryLevel_name" property="name"/>
+        </association>
+        <association property="customersource" javaType="Systemdictionaryitem">
+            <id column="customerSource" property="id"/>
+            <result column="customerSource_name" property="name"/>
+        </association>
+        <association property="inchargeuser" javaType="Employee">
+            <id column="inChargeUser" property="id"/>
+            <result column="inChargeUser_username" property="username"/>
+        </association>
+        <association property="inputuser" javaType="Employee">
+            <id column="inputUser" property="id"/>
+            <result column="inputUser_username" property="username"/>
+        </association>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from potentialcustomer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="crm.domain.Potentialcustomer" useGeneratedKeys="true" keyProperty="id">
+    insert into potentialcustomer (name, age, gender, 
+      tel, email, qq, wechart, 
+      job, salaryLevel, customerSource, 
+      inChargeUser, inputUser, inputTime, 
+      status, changeTime)
+    values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{gender,jdbcType=INTEGER}, 
+      #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{wechart,jdbcType=VARCHAR}, 
+      #{job.id,jdbcType=BIGINT}, #{salarylevel.id,jdbcType=BIGINT}, #{customersource.id,jdbcType=BIGINT},
+      #{inchargeuser.id,jdbcType=BIGINT}, #{inputuser.id,jdbcType=BIGINT}, #{inputtime,jdbcType=TIMESTAMP},
+      #{status,jdbcType=INTEGER}, #{changetime,jdbcType=TIMESTAMP})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="crm.domain.Potentialcustomer">
+    update potentialcustomer
+    set name = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=INTEGER},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechart = #{wechart,jdbcType=VARCHAR},
+      job = #{job.id,jdbcType=BIGINT},
+      salaryLevel = #{salarylevel.id,jdbcType=BIGINT},
+      customerSource = #{customersource.id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="updateByInchargeuser" parameterType="crm.domain.Potentialcustomer">
+    update potentialcustomer
+    set inChargeUser=#{inchargeuser.id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+</update>
+    <update id="change" parameterType="crm.domain.Potentialcustomer">
+        update potentialcustomer
+        set status=1,
+        changeTime=#{changetime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="failOpen" parameterType="java.lang.Long">
+        update potentialcustomer
+        set status=-1
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="receive" parameterType="java.lang.Long">
+        update potentialcustomer
+        set status=1,
+        inChargeUser=#{inchargeuser.id,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="lost" parameterType="java.lang.Long">
+        update potentialcustomer
+        set status=-2
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="intoPull" parameterType="java.lang.Long">
+        update potentialcustomer
+        set status=2
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select id, name, age, gender, tel, email, qq, wechart, job, salaryLevel, customerSource, 
+    inChargeUser, inputUser, inputTime, status
+    from potentialcustomer
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, name
+    from potentialcustomer
+    WHERE status=0
+  </select>
+    <select id="selectAll2" resultMap="BaseResultMap">
+        select id, name
+        from potentialcustomer
+        WHERE status=1
+    </select>
+    <select id="selectAll3" resultMap="BaseResultMap">
+        select id, name
+        from potentialcustomer
+        WHERE status=1 or status=0
+    </select>
+    <select id="queryByConditionCount" resultType="Long">
+        SELECT COUNT(*) FROM potentialcustomer p
+            WHERE p.status!=1 and p.status!=-2 and p.status!=2
+            <if test="keyword!=null">
+                AND (p.name like concat ('%',#{keyword},'%') or p.tel like concat('%',#{keyword},'%'))
+            </if>
+            <if test="status!=null">
+                AND p.status=#{status}
+            </if>
+    </select>
+    <select id="queryByCondition" resultMap="BaseResultMap">
+        SELECT p.id, p.name, p.age, p.gender, p.tel, p.email, p.qq, p.wechart, s.id as job,s.name as job_name,  a.id as salaryLevel,a.name as salaryLevel_name, b.id as customerSource,b.name as customerSource_name,
+        e.id as inChargeUser,e.username as inChargeUser_username, f.id as inputUser,f.username as inputUser_username,p.inputTime, p.status
+        from potentialcustomer p left JOIN systemdictionaryitem s on s.id=job left JOIN systemdictionaryitem a on a.id=salaryLevel left JOIN systemdictionaryitem b on b.id=customerSource LEFT JOIN employee e on e.id=inChargeUser LEFT JOIN employee f on f.id=inputUser
+        WHERE p.status!=1 and p.status!=-2 and p.status!=2
+        <if test="keyword!=null">
+                and (p.name like concat ('%',#{keyword},'%') or p.tel like concat('%',#{keyword},'%'))
+            </if>
+            <if test="status!=null">
+                AND p.status=#{status}
+            </if>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+    <select id="queryByConditionCount2" resultType="Long">
+        SELECT COUNT(*) FROM potentialcustomer p
+        WHERE p.status!=-1 and p.status!=2 and p.status!=0
+        <if test="keyword!=null">
+            AND (p.name like concat ('%',#{keyword},'%') or p.tel like concat('%',#{keyword},'%'))
+        </if>
+        <if test="status!=null">
+            AND p.status=#{status}
+        </if>
+    </select>
+    <select id="queryByCondition2" resultMap="BaseResultMap">
+        SELECT p.id, p.name, p.age, p.gender, p.tel, p.email, p.qq, p.wechart, s.id as job,s.name as job_name,  a.id as salaryLevel,a.name as salaryLevel_name, b.id as customerSource,b.name as customerSource_name,
+        e.id as inChargeUser,e.username as inChargeUser_username, f.id as inputUser,f.username as inputUser_username,p.inputTime, p.status
+        from potentialcustomer p left JOIN systemdictionaryitem s on s.id=job left JOIN systemdictionaryitem a on a.id=salaryLevel left JOIN systemdictionaryitem b on b.id=customerSource LEFT JOIN employee e on e.id=inChargeUser LEFT JOIN employee f on f.id=inputUser
+        WHERE p.status!=-1 and p.status!=2 and p.status!=0
+        <if test="keyword!=null">
+            and (p.name like concat ('%',#{keyword},'%') or p.tel like concat('%',#{keyword},'%'))
+        </if>
+        <if test="status!=null">
+            AND p.status=#{status}
+        </if>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+
+    <select id="queryByConditionCount3" resultType="Long">
+        SELECT COUNT(*) FROM potentialcustomer p
+        WHERE p.status=2
+        <if test="keyword!=null">
+            AND (p.name like concat ('%',#{keyword},'%') or p.tel like concat('%',#{keyword},'%'))
+        </if>
+    </select>
+    <select id="queryByCondition3" resultMap="BaseResultMap">
+        SELECT p.id, p.name, p.age, p.gender, p.tel, p.email, p.qq, p.wechart, s.id as job,s.name as job_name,  a.id as salaryLevel,a.name as salaryLevel_name, b.id as customerSource,b.name as customerSource_name,
+        e.id as inChargeUser,e.username as inChargeUser_username, f.id as inputUser,f.username as inputUser_username,p.inputTime, p.status
+        from potentialcustomer p left JOIN systemdictionaryitem s on s.id=job left JOIN systemdictionaryitem a on a.id=salaryLevel left JOIN systemdictionaryitem b on b.id=customerSource LEFT JOIN employee e on e.id=inChargeUser LEFT JOIN employee f on f.id=inputUser
+        WHERE p.status=2
+        <if test="keyword!=null">
+            and (p.name like concat ('%',#{keyword},'%') or p.tel like concat('%',#{keyword},'%'))
+        </if>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+
+    <select id="queryByConditionCount4" resultType="Long">
+        SELECT count(*) from (SELECT COUNT(*) FROM potentialcustomer
+        WHERE status=0
+        <if test="beginDate!=null">
+            AND inputTime &gt;=#{beginDate}
+        </if>
+        <if test="endDate!=null">
+            AND inputTime &lt;=#{endDate}
+        </if>
+        <if test="groupType==null">
+            group by DATE_FORMAT( inputTime, "%Y-%m" )) as t
+        </if>
+        <if test="groupType=='month'.toString()">
+            group by DATE_FORMAT( inputTime, "%Y-%m" )) as t
+        </if>
+        <if test="groupType=='year'.toString()">
+            group by DATE_FORMAT( inputTime, "%Y" )) as t
+        </if>
+    </select>
+    <select id="queryByCondition4" resultType="crm.domain.chart">
+        select inputTime as groupType,count(inputTime) as number from potentialcustomer
+         WHERE status=0
+        <if test="beginDate!=null">
+            AND inputTime &gt;=#{beginDate}
+        </if>
+        <if test="endDate!=null">
+            AND inputTime &lt;=#{endDate}
+        </if>
+        <if test="groupType==null">
+            group by DATE_FORMAT( inputTime, "%Y-%m" )
+        </if>
+        <if test="groupType=='month'.toString()">
+            group by DATE_FORMAT( inputTime, "%Y-%m" )
+        </if>
+        <if test="groupType=='year'.toString()">
+            group by DATE_FORMAT( inputTime, "%Y" )
+        </if>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+
+    <select id="queryByConditionCount5" resultType="Long">
+        SELECT count(*) from (SELECT COUNT(*) FROM potentialcustomer
+        WHERE status=1
+        <if test="beginDate!=null">
+            AND changeTime &gt;=#{beginDate}
+        </if>
+        <if test="endDate!=null">
+            AND changeTime &lt;=#{endDate}
+        </if>
+        <if test="groupType==null">
+            group by DATE_FORMAT( changeTime, "%Y-%m" )) as t
+        </if>
+        <if test="groupType=='month'.toString()">
+            group by DATE_FORMAT( changeTime, "%Y-%m" )) as t
+        </if>
+        <if test="groupType=='year'.toString()">
+            group by DATE_FORMAT( changeTime, "%Y" )) as t
+        </if>
+    </select>
+    <select id="queryByCondition5" resultType="crm.domain.chart">
+        select changeTime as groupType,count(changeTime) as number from potentialcustomer
+        WHERE status=1
+        <if test="beginDate!=null">
+            AND changeTime &gt;=#{beginDate}
+        </if>
+        <if test="endDate!=null">
+            AND changeTime &lt;=#{endDate}
+        </if>
+        <if test="groupType==null">
+            group by DATE_FORMAT( changeTime, "%Y-%m" )
+        </if>
+        <if test="groupType=='month'.toString()">
+            group by DATE_FORMAT( changeTime, "%Y-%m" )
+        </if>
+        <if test="groupType=='year'.toString()">
+            group by DATE_FORMAT( changeTime, "%Y" )
+        </if>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

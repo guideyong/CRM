@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="crm.domain.Department" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="sn" property="sn" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+      <association property="manager" javaType="Employee" columnPrefix="manager_">
+          <id column="id" property="id"/>
+          <result column="username" property="username"/>
+      </association>
+      <association property="parent" javaType="Department" columnPrefix="parent_">
+          <id column="id" property="id"/>
+          <result column="name" property="name"/>
+      </association>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from department
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="crm.domain.Department" useGeneratedKeys="true" keyProperty="id" >
+    insert into department (sn, name, manager_id, 
+      parent_id, state)
+    values (#{sn,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{manager.id,jdbcType=BIGINT}, 
+      #{parent.id,jdbcType=BIGINT}, #{state,jdbcType=TINYINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="crm.domain.Department" >
+    update department
+    set sn = #{sn,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      manager_id = #{manager.id,jdbcType=BIGINT},
+      parent_id = #{parent.id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, sn, name, manager_id, parent_id, state
+    from department
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, sn, name, manager_id, parent_id, state
+    from department
+  </select>
+  <select id="queryByConditionCount" resultType="Long">
+    SELECT  COUNT(*) FROM department d
+      <where>
+          <if test="state!=null">
+              AND d.state=#{state}
+          </if>
+          <if test="keyword!=null">
+              AND (d.name like concat ('%',#{keyword},'%') or d.sn like concat('%',#{keyword},'%'))
+          </if>
+      </where>
+  </select>
+  <select id="queryByCondition" resultMap="BaseResultMap">
+      select d.id,d.name,d.sn,d.state,e.id as manager_id,e.username as manager_username,p.id as parent_id,p.name as parent_name
+      from department d left JOIN employee e ON e.id=d.manager_id  LEFT JOIN department p on p.id=d.parent_id
+      <where>
+          <if test="state!=null">
+              AND d.state=#{state}
+          </if>
+          <if test="keyword!=null">
+              AND (d.name like concat ('%',#{keyword},'%') or d.sn like concat('%',#{keyword},'%'))
+          </if>
+      </where>
+      <if test="page!=null">
+          limit #{start},#{rows}
+      </if>
+  </select>
+    <update id="updateState">
+        update department SET state=0 WHERE id=#{id}
+    </update>
+</mapper>

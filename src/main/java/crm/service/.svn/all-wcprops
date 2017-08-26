@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/crm/!svn/ver/13/src/main/java/crm/service
+END
+ISystemLogService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/1/src/main/java/crm/service/ISystemLogService.java
+END
+IPermissionService.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/crm/!svn/ver/13/src/main/java/crm/service/IPermissionService.java
+END
+ISystemdictionaryitemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/crm/!svn/ver/20/src/main/java/crm/service/ISystemdictionaryitemService.java
+END
+ISystemdictionaryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/20/src/main/java/crm/service/ISystemdictionaryService.java
+END
+ICustomerdevplanService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/crm/!svn/ver/20/src/main/java/crm/service/ICustomerdevplanService.java
+END
+IOrderService.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/20/src/main/java/crm/service/IOrderService.java
+END
+IContractService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/20/src/main/java/crm/service/IContractService.java
+END
+IEmployeeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/13/src/main/java/crm/service/IEmployeeService.java
+END
+ISignService.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/crm/!svn/ver/20/src/main/java/crm/service/ISignService.java
+END
+IRoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/crm/!svn/ver/1/src/main/java/crm/service/IRoleService.java
+END
+IPotentialcustomerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/crm/!svn/ver/20/src/main/java/crm/service/IPotentialcustomerService.java
+END
+IDepartmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/1/src/main/java/crm/service/IDepartmentService.java
+END
+ICutomertransferService.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/crm/!svn/ver/20/src/main/java/crm/service/ICutomertransferService.java
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/crm/!svn/ver/16/src/main/webapp/js/jquery-easyui
+END
+easyloader.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/1/src/main/webapp/js/jquery-easyui/easyloader.js
+END
+base.js
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/crm/!svn/ver/1/src/main/webapp/js/jquery-easyui/base.js
+END
+jquery.easyui.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/crm/!svn/ver/1/src/main/webapp/js/jquery-easyui/jquery.easyui.min.js
+END
+jquery.portal.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/crm/!svn/ver/21/src/main/webapp/js/jquery-easyui/jquery.portal.js
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/crm/!svn/ver/1/src/main/webapp/js/jquery-easyui/readme.txt
+END
+jquery.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/1/src/main/webapp/js/jquery-easyui/jquery.min.js
+END

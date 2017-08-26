@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/crm/!svn/ver/13/src/main/java/crm/mapper
+END
+SystemdictionaryMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/crm/!svn/ver/20/src/main/java/crm/mapper/SystemdictionaryMapper.java
+END
+CustomerdevplanMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/crm/!svn/ver/20/src/main/java/crm/mapper/CustomerdevplanMapper.java
+END
+OrderMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/crm/!svn/ver/20/src/main/java/crm/mapper/OrderMapper.java
+END
+ContractMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/20/src/main/java/crm/mapper/ContractMapper.java
+END
+EmployeeMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/13/src/main/java/crm/mapper/EmployeeMapper.java
+END
+SignMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/crm/!svn/ver/20/src/main/java/crm/mapper/SignMapper.java
+END
+RoleMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/crm/!svn/ver/13/src/main/java/crm/mapper/RoleMapper.java
+END
+PotentialcustomerMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/crm/!svn/ver/20/src/main/java/crm/mapper/PotentialcustomerMapper.java
+END
+DepartmentMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/1/src/main/java/crm/mapper/DepartmentMapper.java
+END
+CutomertransferMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/crm/!svn/ver/20/src/main/java/crm/mapper/CutomertransferMapper.java
+END
+SystemlogMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/1/src/main/java/crm/mapper/SystemlogMapper.java
+END
+PermissionMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/crm/!svn/ver/13/src/main/java/crm/mapper/PermissionMapper.java
+END
+SystemdictionaryitemMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/crm/!svn/ver/20/src/main/java/crm/mapper/SystemdictionaryitemMapper.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/crm/!svn/ver/16/src/main/webapp
+END
+nopermission.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/crm/!svn/ver/19/src/main/webapp/nopermission.jsp
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/crm/!svn/ver/1/src/main/webapp/index.jsp
+END
+login.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/crm/!svn/ver/12/src/main/webapp/login.jsp
+END
+nopermission.json
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/crm/!svn/ver/19/src/main/webapp/nopermission.json
+END

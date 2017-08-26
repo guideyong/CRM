@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/crm/!svn/ver/13/src/main/java/crm/service/impl
+END
+ContractServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/20/src/main/java/crm/service/impl/ContractServiceImpl.java
+END
+EmployeeServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/13/src/main/java/crm/service/impl/EmployeeServiceImpl.java
+END
+SignServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/crm/!svn/ver/20/src/main/java/crm/service/impl/SignServiceImpl.java
+END
+RoleServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/crm/!svn/ver/13/src/main/java/crm/service/impl/RoleServiceImpl.java
+END
+PotentialcustomerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/crm/!svn/ver/20/src/main/java/crm/service/impl/PotentialcustomerServiceImpl.java
+END
+DepartmentServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/crm/!svn/ver/1/src/main/java/crm/service/impl/DepartmentServiceImpl.java
+END
+CutomertransferServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/crm/!svn/ver/20/src/main/java/crm/service/impl/CutomertransferServiceImpl.java
+END
+SystemLogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/1/src/main/java/crm/service/impl/SystemLogServiceImpl.java
+END
+PermissionServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/crm/!svn/ver/13/src/main/java/crm/service/impl/PermissionServiceImpl.java
+END
+SystemdictionaryitemServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/crm/!svn/ver/20/src/main/java/crm/service/impl/SystemdictionaryitemServiceImpl.java
+END
+SystemdictionaryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/crm/!svn/ver/20/src/main/java/crm/service/impl/SystemdictionaryServiceImpl.java
+END
+CustomerdevplanServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/crm/!svn/ver/20/src/main/java/crm/service/impl/CustomerdevplanServiceImpl.java
+END
+OrderServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/crm/!svn/ver/20/src/main/java/crm/service/impl/OrderServiceImpl.java
+END

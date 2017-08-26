@@ -1,0 +1,5 @@
+数据库使用mysql，数据库账号密码都为root，如需修改，请找到文件CRM0615\WEB-INF\classes\db.properties进行修改。
+将crm.sql文件导入mysql数据库，如果导入失败，请直接新建一个名为crm的数据库。复制crm.sql文件里的sql代码，直接新建查询运行即可。
+配置方式1：先将tomcat/webapp/ROOT文件夹清空，然后将将CRM0615里的所有文件复制过去，启动服务器访问localhost：8080即可。
+配置方式2：打开tomcat/conf/server.xml文件，打开文件在文件最后一个</host>前面加入<Context docBase="C:\Users\acer1\Desktop\CRM0615" path=""/>中间为CRM0615文件路径。
+系统登录账户admin，密码1234556。

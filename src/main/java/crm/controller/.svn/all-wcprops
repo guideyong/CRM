@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/crm/!svn/ver/13/src/main/java/crm/controller
+END
+ContractchartController.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/ContractchartController.java
+END
+SignController.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/SignController.java
+END
+RoleController.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/13/src/main/java/crm/controller/RoleController.java
+END
+CustomerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/CustomerController.java
+END
+CustomertracehistoryController.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/CustomertracehistoryController.java
+END
+PotentialcustomerchartController.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/PotentialcustomerchartController.java
+END
+DepartmentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/crm/!svn/ver/1/src/main/java/crm/controller/DepartmentController.java
+END
+CustomerresourcepoolController.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/CustomerresourcepoolController.java
+END
+SystemdictionaryController.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/SystemdictionaryController.java
+END
+CustomerdevplanController.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/CustomerdevplanController.java
+END
+OrderController.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/crm/!svn/ver/23/src/main/java/crm/controller/OrderController.java
+END
+ContractController.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/crm/!svn/ver/23/src/main/java/crm/controller/ContractController.java
+END
+EmployeeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/crm/!svn/ver/13/src/main/java/crm/controller/EmployeeController.java
+END
+PotentialcustomerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/PotentialcustomerController.java
+END
+CutomertransferController.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/CutomertransferController.java
+END
+CustomerchartController.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/CustomerchartController.java
+END
+MainController.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/1/src/main/java/crm/controller/MainController.java
+END
+SystemlogController.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/crm/!svn/ver/1/src/main/java/crm/controller/SystemlogController.java
+END
+PermissionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/crm/!svn/ver/13/src/main/java/crm/controller/PermissionController.java
+END
+SystemdictionaryitemController.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/crm/!svn/ver/20/src/main/java/crm/controller/SystemdictionaryitemController.java
+END

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/crm/!svn/ver/12/src/main/java/crm/query
+END
+Sign2QueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/20/src/main/java/crm/query/Sign2QueryObject.java
+END
+CutomertransferQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/20/src/main/java/crm/query/CutomertransferQueryObject.java
+END
+SystemlogQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/1/src/main/java/crm/query/SystemlogQueryObject.java
+END
+PermissionQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/crm/!svn/ver/1/src/main/java/crm/query/PermissionQueryObject.java
+END
+SystemdictionaryitemQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/crm/!svn/ver/20/src/main/java/crm/query/SystemdictionaryitemQueryObject.java
+END
+SignQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/crm/!svn/ver/20/src/main/java/crm/query/SignQueryObject.java
+END
+RoleQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/crm/!svn/ver/1/src/main/java/crm/query/RoleQueryObject.java
+END
+DepartmentQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/crm/!svn/ver/1/src/main/java/crm/query/DepartmentQueryObject.java
+END
+SystemdictionaryQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/crm/!svn/ver/20/src/main/java/crm/query/SystemdictionaryQueryObject.java
+END
+OrderQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/crm/!svn/ver/20/src/main/java/crm/query/OrderQueryObject.java
+END
+CustomerdevplanQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/crm/!svn/ver/20/src/main/java/crm/query/CustomerdevplanQueryObject.java
+END
+ContractQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/crm/!svn/ver/20/src/main/java/crm/query/ContractQueryObject.java
+END
+QueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/crm/!svn/ver/12/src/main/java/crm/query/QueryObject.java
+END
+EmployeeQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/crm/!svn/ver/1/src/main/java/crm/query/EmployeeQueryObject.java
+END
+PotentialcustomerQueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/crm/!svn/ver/20/src/main/java/crm/query/PotentialcustomerQueryObject.java
+END

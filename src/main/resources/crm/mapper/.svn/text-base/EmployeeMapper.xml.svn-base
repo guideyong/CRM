@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="crm.domain.Employee" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="realName" property="realname" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="inputTime" property="inputtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="admin" property="admin" jdbcType="TINYINT" />
+    <association property="dept" javaType="Department" columnPrefix="dept_">
+      <id column="id" property="id"/>
+      <result column="name" property="name"/>
+    </association>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from employee
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="crm.domain.Employee" useGeneratedKeys="true" keyProperty="id" >
+    insert into employee (username, realName, password, 
+      tel, email, dept_id, 
+      inputTime, state, admin
+      )
+    values (#{username,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{dept.id,jdbcType=BIGINT}, 
+      #{inputtime,jdbcType=TIMESTAMP}, #{state,jdbcType=TINYINT}, #{admin,jdbcType=TINYINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="crm.domain.Employee" >
+    update employee
+    set username = #{username,jdbcType=VARCHAR},
+      realName = #{realname,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      dept_id = #{dept.id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="passwordupdate" parameterType="crm.domain.Employee" >
+    update employee
+    set password = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <sql id="fieldSql">
+    e.id, e.username, e.realName, e.password, e.tel, e.email, e.inputTime, e.state, e.admin,
+    d.id as dept_id, d.name as dept_name
+  </sql>
+  <sql id="conditionSql">
+    <where>
+      <if test="state!=null">
+        AND e.state=#{state}
+      </if>
+      <if test="keyword!=null">
+        AND (e.username like concat ('%',#{keyword},'%') or e.realname like concat('%',#{keyword},'%'))
+      </if>
+      <if test="beginDate!=null">
+        AND e.inputtime &gt;=#{beginDate}
+      </if>
+      <if test="endDate!=null">
+        AND e.inputtime &lt;=#{endDate}
+      </if>
+    </where>
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select <include refid="fieldSql"/>
+    from employee e left JOIN department d ON d.id=e.dept_id
+    where e.id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select <include refid="fieldSql"/>
+    from employee e left JOIN department d ON d.id=e.dept_id
+  </select>
+  <select id="queryByConditionCount" resultType="Long">
+    SELECT  COUNT(*) FROM employee e
+    <include refid="conditionSql"/>
+  </select>
+  <select id="queryByCondition" resultMap="BaseResultMap">
+    select <include refid="fieldSql"/>
+    from employee e left JOIN department d ON d.id=e.dept_id
+    <include refid="conditionSql"/>
+    <if test="page!=null">
+      limit #{start},#{rows}
+    </if>
+  </select>
+  <select id="queryByLogin" resultMap="BaseResultMap">
+    select <include refid="fieldSql"/>
+    from employee e left JOIN department d ON d.id=e.dept_id
+    where e.username = #{username} and e.password=#{password}
+  </select>
+  <update id="updateState">
+    update employee SET state=0 WHERE id=#{id}
+  </update>
+  <insert id="handlerRelation">
+    INSERT into employee_role(e_id,r_id) VALUES (#{eid},#{rid})
+  </insert>
+  <delete id="deleteRelation">
+    DELETE FROM employee_role WHERE e_id=#{eid}
+  </delete>
+</mapper>

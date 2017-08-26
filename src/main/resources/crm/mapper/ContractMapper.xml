@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.ContractMapper" >
+  <resultMap id="BaseResultMap" type="crm.domain.Contract" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="sn" property="sn" jdbcType="VARCHAR" />
+    <result column="signTime" property="signtime" jdbcType="TIMESTAMP" />
+    <result column="sum" property="sum" jdbcType="BIGINT" />
+    <result column="money" property="money" jdbcType="BIGINT" />
+    <result column="payTime" property="paytime" jdbcType="TIMESTAMP" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="file" property="file" jdbcType="VARCHAR" />
+    <result column="modifyTime" property="modifytime" jdbcType="TIMESTAMP" />
+    <association property="customer" javaType="Potentialcustomer">
+      <id column="customer" property="id"/>
+      <result column="customer_name" property="name"/>
+    </association>
+    <association property="seller" javaType="Employee">
+      <id column="seller" property="id"/>
+      <result column="seller_username" property="username"/>
+    </association>
+    <association property="modifyuser" javaType="Employee">
+      <id column="modifyUser" property="id"/>
+      <result column="modifyUser_username" property="username"/>
+    </association>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from contract
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="crm.domain.Contract" useGeneratedKeys="true" keyProperty="id" >
+    insert into contract (sn, customer, signTime, 
+      seller, sum, money, payTime, 
+      intro, status, file,modifyUser,modifyTime)
+    values (#{sn,jdbcType=VARCHAR}, #{customer.id,jdbcType=BIGINT}, #{signtime,jdbcType=TIMESTAMP},
+      #{seller.id,jdbcType=BIGINT}, #{sum,jdbcType=BIGINT}, #{money,jdbcType=BIGINT}, #{paytime,jdbcType=TIMESTAMP},
+      #{intro,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{file,jdbcType=VARCHAR},#{modifyuser.id,jdbcType=BIGINT},#{modifytime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="crm.domain.Contract" >
+    update contract
+    set
+      customer = #{customer.id,jdbcType=BIGINT},
+      signTime = #{signtime,jdbcType=TIMESTAMP},
+      sum = #{sum,jdbcType=BIGINT},
+      money = #{money,jdbcType=BIGINT},
+      payTime = #{paytime,jdbcType=TIMESTAMP},
+      intro = #{intro,jdbcType=VARCHAR},
+      file = #{file,jdbcType=VARCHAR},
+      modifyUser = #{modifyuser.id,jdbcType=BIGINT},
+      modifyTime = #{modifytime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="examine" parameterType="crm.domain.Order">
+        update contract
+        set
+        status = 1
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, sn, customer, signTime, seller, sum, money, payTime, intro, status, file, 
+    modifyUser, modifyTime
+    from contract
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, sn, customer, signTime, seller, sum, money, payTime, intro, status, file, 
+    modifyUser, modifyTime
+    from contract
+  </select>
+    <select id="queryByConditionCount" resultType="Long">
+        SELECT COUNT(*) FROM contract o
+        <where>
+            <if test="customerID!=null">
+                AND o.customer=#{customerID}
+            </if>
+            <if test="status!=null">
+                AND o.status=#{status}
+            </if>
+            <if test="beginDate!=null">
+                AND o.signTime &gt;=#{beginDate}
+            </if>
+            <if test="endDate!=null">
+                AND o.signTime &lt;=#{endDate}
+            </if>
+        </where>
+    </select>
+    <select id="queryByCondition" resultMap="BaseResultMap">
+        SELECT o.id,o.sn, o.signTime, o.money, o.sum,o.payTime, o.intro, o.file, o.modifyTime,o.status, c.id as customer,c.name as
+        customer_name, s.id as seller,s.username as seller_username, m.id as modifyUser,m.username as
+        modifyUser_username
+        from contract o left JOIN potentialcustomer c on c.id=customer left JOIN employee s on s.id=seller left JOIN
+        employee m on m.id=modifyUser
+        <where>
+            <if test="customerID!=null">
+                AND o.customer=#{customerID}
+            </if>
+            <if test="status!=null">
+                AND o.status=#{status}
+            </if>
+            <if test="beginDate!=null">
+                AND o.signTime &gt;=#{beginDate}
+            </if>
+            <if test="endDate!=null">
+                AND o.signTime &lt;=#{endDate}
+            </if>
+        </where>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+
+    <select id="queryByConditionCount2" resultType="Long">
+        SELECT count(*) from (SELECT COUNT(*) FROM contract
+        WHERE status=1
+        <if test="beginDate!=null">
+            AND signTime &gt;=#{beginDate}
+        </if>
+        <if test="endDate!=null">
+            AND signTime &lt;=#{endDate}
+        </if>
+        <if test="groupType==null">
+            group by DATE_FORMAT( signTime, "%Y-%m" )) as t
+        </if>
+        <if test="groupType=='month'.toString()">
+            group by DATE_FORMAT( signTime, "%Y-%m" )) as t
+        </if>
+        <if test="groupType=='year'.toString()">
+            group by DATE_FORMAT( signTime, "%Y" )) as t
+        </if>
+    </select>
+    <select id="queryByCondition2" resultType="crm.domain.chart">
+        select signTime as groupType,sum(sum) as number from contract
+        WHERE status=1
+        <if test="beginDate!=null">
+            AND signTime &gt;=#{beginDate}
+        </if>
+        <if test="endDate!=null">
+            AND signTime &lt;=#{endDate}
+        </if>
+        <if test="groupType==null">
+            group by DATE_FORMAT( signTime, "%Y-%m" )
+        </if>
+        <if test="groupType=='month'.toString()">
+            group by DATE_FORMAT( signTime, "%Y-%m" )
+        </if>
+        <if test="groupType=='year'.toString()">
+            group by DATE_FORMAT( signTime, "%Y" )
+        </if>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

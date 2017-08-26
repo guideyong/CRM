@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/crm/!svn/ver/7/templates
+END
+ServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/crm/!svn/ver/7/templates/ServiceImpl.java
+END
+Controller.java
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/crm/!svn/ver/7/templates/Controller.java
+END
+list.js
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/crm/!svn/ver/7/templates/list.js
+END
+list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/crm/!svn/ver/16/templates/list.jsp
+END
+IService.java
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/crm/!svn/ver/7/templates/IService.java
+END
+QueryObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/crm/!svn/ver/7/templates/QueryObject.java
+END

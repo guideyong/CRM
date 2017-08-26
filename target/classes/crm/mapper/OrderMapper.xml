@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="crm.domain.Order">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="signTime" property="signtime" jdbcType="TIMESTAMP"/>
+        <result column="totalSum" property="totalsum" jdbcType="BIGINT"/>
+        <result column="sum" property="sum" jdbcType="BIGINT"/>
+        <result column="intro" property="intro" jdbcType="VARCHAR"/>
+        <result column="file" property="file" jdbcType="VARCHAR"/>
+        <result column="createTime" property="createtime" jdbcType="TIMESTAMP"/>
+        <result column="modifyTime" property="modifytime" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <association property="customer" javaType="Potentialcustomer">
+            <id column="customer" property="id"/>
+            <result column="customer_name" property="name"/>
+        </association>
+        <association property="seller" javaType="Employee">
+            <id column="seller" property="id"/>
+            <result column="seller_username" property="username"/>
+        </association>
+        <association property="modifyuser" javaType="Employee">
+            <id column="modifyUser" property="id"/>
+            <result column="modifyUser_username" property="username"/>
+        </association>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from `order`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="crm.domain.Order" useGeneratedKeys="true" keyProperty="id">
+    insert into `order` (customer, signTime, seller, 
+      totalSum, sum, intro, 
+      file, createTime, status)
+    values (#{customer.id,jdbcType=BIGINT}, #{signtime,jdbcType=TIMESTAMP}, #{seller.id,jdbcType=BIGINT},
+      #{totalsum,jdbcType=BIGINT}, #{sum,jdbcType=BIGINT}, #{intro,jdbcType=VARCHAR}, 
+      #{file,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},  #{status,jdbcType=INTEGER})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="crm.domain.Order">
+    update `order`
+    set customer = #{customer.id,jdbcType=BIGINT},
+      signTime = #{signtime,jdbcType=TIMESTAMP},
+      totalSum = #{totalsum,jdbcType=BIGINT},
+      sum = #{sum,jdbcType=BIGINT},
+      intro = #{intro,jdbcType=VARCHAR},
+      file = #{file,jdbcType=VARCHAR},
+      modifyUser = #{modifyuser.id,jdbcType=BIGINT},
+      modifyTime = #{modifytime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="addContract" parameterType="crm.domain.Order">
+        update `order`
+        set
+        status = 1
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="refund" parameterType="crm.domain.Order">
+        update `order`
+        set
+        status = 2
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select id, customer, signTime, seller, totalSum, sum, intro, file, createTime, modifyUser, 
+    modifyTime, status
+    from `order`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, customer, signTime, seller, totalSum, sum, intro, file, createTime, modifyUser, 
+    modifyTime, status
+    from `order`
+  </select>
+    <select id="queryByConditionCount" resultType="Long">
+        SELECT COUNT(*) FROM `order` o
+        <where>
+            <if test="customerID!=null">
+                AND o.customer=#{customerID}
+            </if>
+            <if test="status!=null">
+                AND o.status=#{status}
+            </if>
+            <if test="beginDate!=null">
+                AND o.signTime &gt;=#{beginDate}
+            </if>
+            <if test="endDate!=null">
+                AND o.signTime &lt;=#{endDate}
+            </if>
+        </where>
+    </select>
+    <select id="queryByCondition" resultMap="BaseResultMap">
+        SELECT o.id, o.signTime, o.totalSum, o.sum, o.intro, o.file, o.modifyTime,o.status, c.id as customer,c.name as
+        customer_name, s.id as seller,s.username as seller_username, m.id as modifyUser,m.username as
+        modifyUser_username
+        from `order` o left JOIN potentialcustomer c on c.id=customer left JOIN employee s on s.id=seller left JOIN
+        employee m on m.id=modifyUser
+        <where>
+            <if test="customerID!=null">
+                AND o.customer=#{customerID}
+            </if>
+            <if test="status!=null">
+                AND o.status=#{status}
+            </if>
+            <if test="beginDate!=null">
+                AND o.signTime &gt;=#{beginDate}
+            </if>
+            <if test="endDate!=null">
+                AND o.signTime &lt;=#{endDate}
+            </if>
+        </where>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

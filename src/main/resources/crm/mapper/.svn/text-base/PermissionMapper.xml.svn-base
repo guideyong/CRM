@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.PermissionMapper">
+    <resultMap id="BaseResultMap" type="crm.domain.Permission">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="resource" property="resource" jdbcType="VARCHAR"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from permission
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="crm.domain.Permission" useGeneratedKeys="true" keyProperty="id">
+    insert into permission (name, resource)
+    values (#{name,jdbcType=VARCHAR}, #{resource,jdbcType=VARCHAR})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="crm.domain.Permission">
+    update permission
+    set name = #{name,jdbcType=VARCHAR},
+      resource = #{resource,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select id, name, resource
+    from permission
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, resource
+    from permission
+  </select>
+    <select id="queryByResource" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select id, name, resource
+        from permission
+        where resource=#{function}
+    </select>
+    <select id="queryPermissionByEid" resultMap="BaseResultMap" parameterType="java.lang.Long">
+     SELECT id,name,resource FROM permission where id in(SELECT p_id FROM role_permission WHERE r_id IN(SELECT r_id FROM employee_role WHERE e_id=#{id}))
+    </select>
+    <select id="queryByConditionCount" resultType="Long">
+    SELECT  COUNT(*) FROM permission p
+        <where>
+            <if test="keyword!=null">
+               (p.name like concat ('%',#{keyword},'%') or p.resource like concat('%',#{keyword},'%'))
+            </if>
+        </where>
+  </select>
+    <select id="queryByCondition" resultMap="BaseResultMap">
+        SELECT id,name,resource FROM permission p
+        <where>
+            <if test="keyword!=null">
+                (p.name like concat ('%',#{keyword},'%') or p.resource like concat('%',#{keyword},'%'))
+            </if>
+        </where>
+        <if test="page!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+    <select id="queryByPrimaryKey" resultType="Long" parameterType="java.lang.Long">
+    SELECT p_id FROM role_permission where r_id=#{rid}
+    </select>
+    <select id="queryByIds" resultMap="BaseResultMap">
+           select id, name, resource
+    from permission
+    where id IN (#{ids})
+    </select>
+    <select id="permissionlistByRId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        SELECT id,name,resource FROM permission WHERE id in(SELECT p_id FROM role_permission WHERE r_id=#{id})
+    </select>
+</mapper>

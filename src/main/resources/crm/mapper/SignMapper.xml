@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="crm.mapper.SignMapper" >
+  <resultMap id="BaseResultMap" type="crm.domain.Sign" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="itime" property="itime" jdbcType="TIMESTAMP" />
+    <result column="otime" property="otime" jdbcType="TIMESTAMP" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <association property="userId" javaType="Employee">
+      <id column="user_id" property="id"/>
+      <result column="user_username" property="username"/>
+    </association>
+    <association property="adduser" javaType="Employee">
+      <id column="adduser" property="id"/>
+      <result column="adduser_username" property="username"/>
+    </association>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sign
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="crm.domain.Sign" useGeneratedKeys="true" keyProperty="id" >
+  insert into sign (user_id, ip, status,
+  itime, otime, adduser,
+  addtime)
+  values (#{userId.id,jdbcType=BIGINT}, #{ip,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+  #{itime,jdbcType=TIMESTAMP}, #{otime,jdbcType=TIMESTAMP}, #{adduser.id,jdbcType=BIGINT},
+  #{addtime,jdbcType=TIMESTAMP})
+</insert>
+  <insert id="addsign" parameterType="crm.domain.Sign" useGeneratedKeys="true" keyProperty="id" >
+    insert into sign (user_id, ip, status,
+    itime, otime, adduser,
+    addtime)
+    values (#{userId.id,jdbcType=BIGINT}, #{ip,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+    #{itime,jdbcType=TIMESTAMP}, #{otime,jdbcType=TIMESTAMP}, #{adduser.id,jdbcType=BIGINT},
+    #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="crm.domain.Sign" >
+    update sign
+    set
+      otime = #{otime,jdbcType=TIMESTAMP},
+      status=#{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, user_id, ip, status, itime, otime, adduser, addtime
+    from sign
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByUserAndTime" resultMap="BaseResultMap">
+    select id, user_id, ip, status, itime, otime, adduser, addtime
+    from sign
+    where user_id = #{user_id} and itime >= #{itime}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, user_id, ip, status, itime, otime, adduser, addtime
+    from sign
+  </select>
+
+  <select id="queryByConditionCount" resultType="Long">
+    SELECT COUNT(*) FROM sign
+    <where>
+      <if test="userID!=null">
+        AND user_id=#{userID}
+      </if>
+      <if test="status!=null">
+        AND status=#{status}
+      </if>
+    </where>
+  </select>
+  <select id="queryByCondition" resultMap="BaseResultMap">
+    select s.id,s.ip,s.status,s.itime,s.otime,s.addtime,e.id as user_id, e.username as user_username,a.id as adduser, a.username as adduser_username FROM sign s LEFT JOIN employee e on e.id=user_id LEFT JOIN employee a on a.id=adduser
+    <where>
+      <if test="userID!=null">
+        AND s.user_id=#{userID}
+      </if>
+      <if test="status!=null">
+        AND s.status=#{status}
+      </if>
+    </where>
+</select>
+</mapper>
